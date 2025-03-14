@@ -1,0 +1,40 @@
+---
+pipeline:
+  agent:
+    label: "any"
+
+  environment:
+    IMAGE_NAME: "my-app"
+    CONTAINER_NAME: "my-container"
+
+  options:
+    timeout: 10
+
+  stages:
+    - name: "Clone Repository"
+      agent: docker
+      steps:
+        - checkout:
+            url: "https://github.com/Rithigasri/POC-2.0---Jenkins-Vs-Dagger.io"
+      
+    - name: "Build Docker Image"
+      agent: any
+      steps:
+        - sh: |
+            docker build -t ${IMAGE_NAME} .
+  
+    - name: "Run Docker Container"
+      agent: any
+      steps:
+        - sh: |
+            docker run -d -p 8080:8080 --name=${IMAGE_NAME} ${IMAGE_NAME}
+      
+    - name: "Check Running Container"
+      agent: any
+      steps:
+        - sh: "docker ps -a"
+
+    - name: "Test Deployment"
+      agent: any
+      steps:
+        - sh: "curl -f http://localhost:8080 || exit 1"
