@@ -21,7 +21,7 @@ pipeline {
 
         stage('Run Docker Container') {
             steps {
-                sh 'docker run -d -p 8080:8080 --name $CONTAINER_NAME $IMAGE_NAME'
+                sh 'docker run -d -p 8081:8080 --name $CONTAINER_NAME $IMAGE_NAME'
             }
         }
 
@@ -33,7 +33,7 @@ pipeline {
 
         stage('Test Deployment') {
             steps {
-                sh 'curl -f http://localhost:8080 || exit 1'
+                sh 'curl -f http://localhost:8081 || exit 1'
             }
         }
     }
