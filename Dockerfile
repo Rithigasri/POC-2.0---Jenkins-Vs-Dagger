@@ -14,4 +14,4 @@ RUN pip install --no-cache-dir fpdf pywebio
 EXPOSE 8081
 
 # Run the application
-CMD ["python", "main.py"]
+CMD ["python", "app.py"]
