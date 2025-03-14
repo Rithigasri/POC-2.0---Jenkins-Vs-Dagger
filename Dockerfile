@@ -14,4 +14,4 @@ RUN pip install --no-cache-dir fpdf pywebio
 EXPOSE 8080
 
 # Run the application
-CMD ["python", "-m", "pywebio.platform.tornado_http", "--port=8080"]
+CMD ["python", "-m", "pywebio.platform.tornado_http", "--port=8081"]
