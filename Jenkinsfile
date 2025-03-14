@@ -9,7 +9,7 @@ pipeline {
     stages {
         stage('Clone Repository') {
             steps {
-                git 'https://github.com/Rithigasri/POC-2.0---Jenkins-Vs-Dagger.io'
+                git 'https://github.com/Rithigasri/POC-2.0---Jenkins-Vs-Dagger'
             }
         }
 
