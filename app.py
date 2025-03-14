@@ -50,4 +50,4 @@ def create_pdf(pages, text_info['font'], text_info['size'], save_location):
 
 
 if __name__ == '__main__':
-    start_server(app_main, port=8081, debug=True)
+    start_server(app_main, port=8080, debug=True)
